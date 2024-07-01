@@ -1,0 +1,523 @@
+{% extends 'layout/base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- Slider/Intro Section Start -->
+    <div class="intro11-slider-wrap section">
+        <div class="intro11-slider swiper-container">
+            <div class="swiper-wrapper">
+                {% for carousel in carousels %}
+                <div class="single-slide-wrapper swiper-slide">
+                    <img src="{{ carousel.photo.url }}"  alt="...">
+                    <!-- Intro Content Start -->
+                    <div class="slider-content text-center">
+                        <h2 class="title" data-splitting>{{ carousel.title }}</h2>
+                        <h4 class="sub-title">{{ carousel.text }}</h4>
+                        <!-- <a href="#" class="btn btn-outline-light btn-lg">Discover More</a> -->
+                    </div>
+                    <!-- Intro Content End -->
+                </div>
+                {% endfor %}
+            </div>
+            <!-- Slider Navigation -->
+            <div class="home1-slider-prev swiper-button-prev main-slider-nav"><i class="fa fa-long-arrow-left"></i></div>
+            <div class="home1-slider-next swiper-button-next main-slider-nav"><i class="fa fa-long-arrow-right"></i></div>
+            <!-- Slider pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!-- Slider/Intro Section End -->
+    <!-- About Section Start Here -->
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="about-section pt-90 pb-90 ">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-5 order-1 m-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="restaurant-about-content section-title">
+                        <h2 class="title mb-5">Это команда профессионалов со значительным опытом в области рекламы.</h2>
+                        <hr>
+                        <p class="desc-content mb-5 about-text">“Shak’s Media”–известный и пользующийся доверием бренд, как на территории  Узбекистана и других стран Центральной Азии,  так и за его пределами.
+                            "Shak's Media" реализует сложные комплексные проекты,  учитывающие потребности целевых аудиторий, а также особенности продуктов и услуг наших клиентов.
+                            Наши преимущества:<br>
+                            •	Хорошее знание рынка Центральной Азии и наличие 16+ лет опыта работы на нем<br>
+                            •	Большой опыт работы как с локальными, так и с международными компаниями<br>
+                            •	Комплексных подход и использование интегрированных коммуникаций <br>
+                            •	Специальные условия на размещение рекламы со многими ключевыми медийными площадками<br>
+                            •	Сильная команда надежных партнеров и поставщиков
+                            </p>
+                        <!-- <a href="#" class="btn btn-dark btn-hover-primary">Learn More</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-7 col-xl-7 order-0 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+                    <figure class="marketing-about-thumb mb-md-40 mb-sm-40">
+                        <img class="fit-image" src="{% static 'project/assets/images/about/1.jpg' %}" alt="About">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="about-section pt-90 pb-90">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-5 order-1 m-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="restaurant-about-content section-title">
+                        <h2 class="title mb-5">This is a team of professionals with significant experience in the field of advertising.</h2>
+                        <hr>
+                        <p class="desc-content mb-7 about-text">"Shak's Media" is a well-known and trusted brand both in Uzbekistan and other countries of Central Asia and beyond its borders.
+                            "Shak's Media" implements complex projects that take into account the needs of the target audiences, as well as the characteristics of the products and services of our clients.
+                            Our advantages:<br>
+                            •	Good knowledge of the Central Asian market and 16+ years of experience in the market<br>
+                            •	Extensive experience in working with both local and international companies<br>
+                            •	Comprehensive approach and use of integrated communications <br>
+                            •	Special terms and conditions for advertising with many key media platforms<br>
+                            •   Strong team of reliable partners and suppliers
+                            </p>
+                        <!-- <a href="#" class="btn btn-dark btn-hover-primary">Learn More</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-7 order-0 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+                    <figure class="marketing-about-thumb mb-md-40 mb-sm-40">
+                        <img class="fit-image" src="{% static 'project/assets/images/about/1.jpg' %}" alt="About">
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- About Section End Here -->
+    <!-- Service Section Start Here -->
+    <div class="service-section pb-90">
+        <div class="container">
+            {% if LANGUAGE_CODE == "ru" %}
+            <div class="row text-center mb-10">
+                <div class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="title text-center">Наши услуги</h3>
+                    <hr>
+                    <!-- <h4 class="sub-title mb-0">The Ultimate Business Template</h4> -->
+                </div>
+            </div>
+            {% else %}
+            <div class="row text-center mb-10">
+                <div class="section-title" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="title text-center">Services</h3>
+                    <hr>
+                    <!-- <h4 class="sub-title mb-0">The Ultimate Business Template</h4> -->
+                </div>
+            </div>
+            {% endif %}
+            <div class="row mb-n10">
+                {% for service in services %}
+                <div class="col-lg-4 col-md-6 mb-10">
+                    <div class="single-service-wrapper" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-icon">
+                            <a href="{% url 'service-detail' service.pk %}"><i class="fa fa-{{ service.icon_name }}"></i></a>
+                        </div>
+                        <div class="service-content">
+                            <h4 class="title">{{ service.title }}</h4>
+                            <!-- <p class="desc-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu ornare ante. Proin aliquam odio id lorem finibus, a ullamcorper arcu posuere.</p> -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Service Section End Here -->
+    <!-- Funfact Section Start Here -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="funfact-section d-flex flex-column justify-content-center">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters counters align-items-center">
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <div class="counter-area">
+                            <strong class="counter">14</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Активные проекты</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 item">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <div class="counter-area">
+                            <strong class="counter">200</strong><span class="text-white ml-2">+</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">ВЫПОЛНЕННЫЕ ПРОЕКТЫ</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="600">
+                        <div class="counter-area">
+                            <strong class="counter">99</strong><span class="text-white ml-2">%</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Счастливые клиенты</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="900">
+                        <div class="counter-area">
+                            <strong class="counter">140,160</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">рабочие часы</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="funfact-section d-flex flex-column justify-content-center">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters counters align-items-center">
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <div class="counter-area">
+                            <strong class="counter">14</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Active Projects</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 item">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <div class="counter-area">
+                            <strong class="counter">200</strong><span class="text-white ml-2">+</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Projects Done</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="600">
+                        <div class="counter-area">
+                            <strong class="counter">99</strong><span class="text-white ml-2">%</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Happy Clients</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="900">
+                        <div class="counter-area">
+                            <strong class="counter">140,160</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Working Hours</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Funfact Section End Here -->
+
+    <!-- Portfolio Section Start Here -->
+    <style>
+    /* Основные стили для секции портфолио */
+.portfolio-section {
+    padding-top: 90px;
+    background-color: #f8f9fa;
+}
+
+.section-title h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.single-portfolio-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.single-portfolio-wrap:hover {
+    transform: translateY(-10px);
+}
+
+.portfolio-thumb {
+    position: relative;
+}
+
+.portfolio-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    margin-bottom: 100px;
+}
+
+.portfolio-thumb:hover .portfolio-img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.portfolio-thumb:hover .overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    color: #fff;
+    text-align: center;
+}
+
+.overlay-text h5 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.overlay-text p {
+    font-size: 1rem;
+}
+
+    </style>
+    <div class="portfolio-section pt-90 container-fluid">
+    <div class="container-fluid">
+        {% if LANGUAGE_CODE == "ru" %}
+        <div class="row">
+            <div class="section-title text-start" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="title text-start">Портфолио</h4>
+                <hr>
+            </div>
+        </div>
+        {% else %}
+        <div class="row">
+            <div class="section-title text-start" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="title text-start">Portfolio</h4>
+                <hr>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row">
+            {% for portfolio in portfolios %}
+            <div class="col-lg-4 col-sm-12 mt-30">
+                <div class="single-portfolio-wrap" data-aos="fade-up" data-aos-delay="300">
+                    <figure class="portfolio-thumb hover-style position-relative m-0">
+                        <a href="{% url 'portfolio-detail' portfolio.pk %}">
+                            <img src="{{ portfolio.photo.url }}" alt="Portfolio Image" class="portfolio-img">
+                        </a>
+                    </figure>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+    <!-- Portfolio Section End Here -->
+
+
+    <!-- Testimonial Section Start Here -->
+    <div class="testimonial-section pt-90">
+        <div class="container">
+            {% if LANGUAGE_CODE == "ru" %}
+            <div class="row pb-3">
+                <div class="section-title text-center" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="bottom bottom">
+                    <h4 class="title">Отзыви</h4>
+                    <h6 class="sub-title">Что говорят наши клиенты</h6>
+                </div>
+            </div>
+            {% else %}
+            <div class="row pb-3">
+                <div class="section-title text-center" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="bottom bottom">
+                    <h4 class="title">Customer Testimonials </h4>
+                    <h6 class="sub-title">What our clients say</h6>
+                </div>
+            </div>
+            {% endif %}
+            <div class="row pt-5">
+                <div class="col-12">
+                    <div class="single-slide-1 swiper-container" data-aos="fade-up" data-aos-delay="300">
+
+                        <div class="swiper-wrapper">
+
+                            {% for testimonial in testimonials %}
+                            <div class="testimonial swiper-slide">
+                                <div class="testimonial-author-image">
+                                    <img class="ferre" src="{{ testimonial.img.url }}"   alt="Client" width="300px" height="100px">
+                                </div>
+                                <blockquote>
+                                    <p>{{ testimonial.text }}</p>
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <span><strong>- {{ testimonial.title_name }}</strong></span>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        <!-- Slider pagination -->
+                        </div>   
+                        <div class="swiper-pagination default-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial Section End Here -->
+
+
+    <!-- team section -->
+    {% if teams.count != 0 %}
+
+    <div class=" team container-fluid pt-90 pb-90">
+        <div class="container">
+            {% if LANGUAGE_CODE == "ru" %}
+            <div class="team_title">
+                <h1 class="text-center text-white">Наша команда</h1>
+                <hr>
+            </div>
+            {% else %}
+            <div class="team_title">
+                <h1 class="text-start">Our Team</h1>
+                <hr>
+            </div>
+            {% endif %}
+            <div class="row team_cards">
+            {% for team in teams %}
+                <div class="col-lg-4 team_cards_single">
+                        <div class="card team">
+                            <img src="{{ team.img.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ team.name }}</h5>
+                            </div>
+                                <!-- social media -->
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col-md-12 justify-content-center d-flex text-center social_media_icon">
+                                            <a class="social_media" href="{{ team.facebook }}"><img src="{% static 'project/assets/images/icon/facebook.png' %}" alt=""></a>
+                                            <a class="social_media" href="{{ team.instagram }}"><img src="{% static 'project/assets/images/icon/instagram.png' %}" alt=""></a>
+                                            <a class="social_media" href="{{ team.telegram }}"><img src="{% static 'project/assets/images/icon/telegram.png' %}" alt=""></a>
+                                            <a class="social_media" href="{{ team.whatsapp }}"><img src="{% static 'project/assets/images/icon/whatsapp.png' %}" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- social media end -->
+                        </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+      </div>
+    <!-- end team section -->
+
+    <!-- Support Section Start Here -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="pt-90 pb-90  contact_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="support-wrapper" data-aos="fade-up" data-aos-delay="300">
+                        <div class="section-title text-center">
+                            <h1 class="title">Есть вопросы или предложения?</h1>
+                            <p class="mt-5 mb-5 pb-3 text_title">Если вы хотите работать с нами или хотите узнать больше о том, что мы делаем, мы будем рады пообщаться с вами</p>
+                        </div>
+                        <div class="support-button">
+                            <a class="btn  btn-hover-success" href="{% url 'contact' %}">связаться сейчас</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="pt-90 pb-90  contact_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="support-wrapper" data-aos="fade-up" data-aos-delay="300">
+                        <div class="section-title text-center">
+                            <h1 class="title">Have questions or suggestions?</h1>
+                            <p class="mt-5 mb-5 pb-3 text_title">If you would like to work with us or would like to know more about what we do, we would love to chat with you.</p>
+                        </div>
+                        <div class="support-button">
+                            <a class="btn  btn-hover-success" href="{% url 'contact' %}">contact now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+{% else %}
+    {% endif %}
+
+    <!-- Blog Section Start Here -->
+    <div class="blog-section pt-90 pb-90">
+        <div class="container">
+            <div class="row">
+                {% if LANGUAGE_CODE == "ru" %}
+                <div class="section-title text-center mb-8" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="title text-start">Блог</h3>
+                    <hr>
+                    <!-- <h4 class="sub-title">Познакомьтесь с отличными стилями блога</h4> -->
+                </div>
+                {% else %}
+                <div class="section-title text-center mb-8" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="title text-start">Blog</h3>
+                    <hr>
+                    <!-- <h4 class="sub-title">Познакомьтесь с отличными стилями блога</h4> -->
+                </div>
+                {% endif %}
+            </div>
+            <div class="row mb-n10">
+                {% for blog in blogs %}
+                <div class="col-md-4 mb-10">
+                    <!-- Single Blog Post Start -->
+                    <div class="single-blog-post-wrap" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                                <img class="fit-image" src="{{ blog.img.url }}" alt="Blog Thumb">
+                                <!-- <img class="btn-plus" src="assets/images/icon/plus.svg" alt="Plus Icons"> -->
+                        </div>
+                        <div class="blog-post-details pt-5">
+                            <h3 class="title text-white">{{ blog.title }}</h3>
+                            {% if LANGUAGE_CODE == "ru" %}
+                            <a href="{% url 'blog-detail' pk=blog.pk %}" class="btn btn-hover-primary read-more text-white">читать дальше</a>
+                            {% else %}
+                            <a href="{% url 'blog-detail' pk=blog.pk %}" class="btn btn-hover-primary read-more text-white">read more</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Single Blog Post End -->
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Blog Section End Here -->
+
+
+    {% endblock content %}

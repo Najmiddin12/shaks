@@ -1,0 +1,259 @@
+{% extends 'layout/base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- Breadcrumb Area Start Here -->
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="breadcrumbs-area position-relative mb-text-p">
+        <div class="container">
+            <div class="row">
+                <h1 class="title text-center text-light">О нас</h1>
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="breadcrumbs-area position-relative mb-text-p">
+        <div class="container">
+            <div class="row">
+                <h1 class="title text-center text-light">About Us</h1>
+                <img src="" alt="">
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Breadcrumb Area End Here -->
+    <!-- About Section Start Here -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="about-section pt-90 pb-90">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-5 order-1 m-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="restaurant-about-content section-title">
+                        <h2 class="title mb-5 about-title-single">About us</h2>
+                        <p class="desc-content mb-7 about-text-single">“Shak’s Media”–известный и пользующийся доверием бренд, как на территории  Узбекистана и других стран Центральной Азии,  так и за его пределами.
+                            "Shak's Media" реализует сложные комплексные проекты,  учитывающие потребности целевых аудиторий, а также особенности продуктов и услуг наших клиентов. 
+                            Наши преимущества:<br>
+                            •	Хорошее знание рынка Центральной Азии и наличие 16+ лет опыта работы на нем<br>
+                            •	Большой опыт работы как с локальными, так и с международными компаниями<br>
+                            •	Комплексных подход и использование интегрированных коммуникаций <br>
+                            •	Специальные условия на размещение рекламы со многими ключевыми медийными площадками<br>
+                            •	Сильная команда надежных партнеров и поставщиков
+                            </p>
+                        <!-- <a href="#" class="btn btn-dark btn-hover-primary">Learn More</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-7 order-0 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+                    <figure class="marketing-about-thumb mb-md-40 mb-sm-40">
+                        <img class="fit-image" src="{% static 'project/../../static/project/assets/images/about/1.jpg' %}" alt="About">
+                        <!-- <figcaption class="about-video-btn">
+                            <a href="https://www.youtube.com/watch?v=v9nBysHSzhE" class="btn-play btn-video-popup video-popup">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </figcaption> -->
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="about-section pt-90 pb-90">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-5 order-1 m-auto" data-aos="fade-up" data-aos-delay="100">
+                    <div class="restaurant-about-content section-title">
+                        <h2 class="title mb-5 about-title-single">About us</h2>
+                        <p class="desc-content mb-7 about-text-single">"Shak's Media" is a well-known and trusted brand both in Uzbekistan and other countries of Central Asia and beyond its borders.
+                            "Shak's Media" implements complex projects that take into account the needs of the target audiences, as well as the characteristics of the products and services of our clients.
+                            Our advantages:<br>
+                            •	Good knowledge of the Central Asian market and 16+ years of experience in the market<br>
+                            •	Extensive experience in working with both local and international companies<br>
+                            •	Comprehensive approach and use of integrated communications <br>
+                            •	Special terms and conditions for advertising with many key media platforms<br>
+                            •   Strong team of reliable partners and suppliers
+                            </p>
+                        <!-- <a href="#" class="btn btn-dark btn-hover-primary">Learn More</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-7 order-0 order-lg-1" data-aos="fade-up" data-aos-delay="300">
+                    <figure class="marketing-about-thumb mb-md-40 mb-sm-40">
+                        <img class="fit-image" src="{% static 'project/../../static/project/assets/images/about/1.jpg' %}" alt="About">
+                        <!-- <figcaption class="about-video-btn">
+                            <a href="https://www.youtube.com/watch?v=v9nBysHSzhE" class="btn-play btn-video-popup video-popup">
+                                <i class="fa fa-play"></i>
+                            </a>
+                        </figcaption> -->
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- About Section End Here -->
+    <!-- Funfact Section Start Here -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="funfact-section d-flex flex-column justify-content-center">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters counters align-items-center">
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <div class="counter-area">
+                            <strong class="counter">14</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Активные проекты</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 item">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <div class="counter-area">
+                            <strong class="counter">200</strong><span class="text-white ml-2">+</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">ВЫПОЛНЕННЫЕ ПРОЕКТЫ</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="600">
+                        <div class="counter-area">
+                            <strong class="counter">99</strong><span class="text-white ml-2">%</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Счастливые клиенты</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="900">
+                        <div class="counter-area">
+                            <strong class="counter">140,160</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">рабочие часы</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="funfact-section d-flex flex-column justify-content-center">
+        <div class="container-fluid p-0">
+            <div class="row no-gutters counters align-items-center">
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="100">
+                        <div class="counter-area">
+                            <strong class="counter">14</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Active Projects</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6 item">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="300">
+                        <div class="counter-area">
+                            <strong class="counter">200</strong><span class="text-white ml-2">+</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Projects Done</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="600">
+                        <div class="counter-area">
+                            <strong class="counter">99</strong><span class="text-white ml-2">%</span>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Happy Clients</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-fun-fact-wrap" data-aos="fade-up" data-aos-delay="900">
+                        <div class="counter-area">
+                            <strong class="counter">140,160</strong>
+                        </div>
+                        <div class="counter-content">
+                            <h3 class="title">Working Hours</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Funfact Section End Here -->
+
+    <div class="container nagradi mb-10 mt-10">
+        <div class="row">
+          <div class="col">
+            <img class="fit-image-reward" src="{% static 'project/assets/images/about/nagradi.png' %}" alt="About">
+          </div>
+        </div>
+      </div>
+
+    <!-- Testimonial Section Start Here -->
+    <div class="testimonial-section pt-90  mt-90">
+        <div class="container">
+            <div class="row pb-3">
+                <div class="section-title text-center" data-aos="fade-up" data-aos-delay="200" data-aos-anchor-placement="bottom bottom">
+                    <h4 class="title">Отзыв</h4>
+                    <h6 class="sub-title">Что говорят наши клиенты</h6>
+                </div>
+            </div>
+            <div class="row pt-5">
+                <div class="col-12">
+                    <div class="single-slide-1 swiper-container" data-aos="fade-up" data-aos-delay="300">
+                        <div class="swiper-wrapper">
+
+                            {% for testimonial in testimonials %}
+                            <div class="testimonial swiper-slide">
+                                <div class="testimonial-author-image">
+                                    <img class="ferre" src="{{ testimonial.img.url }}"   alt="Client" width="300px" height="100px">
+                                </div>
+                                <blockquote>
+                                    <p>{{ testimonial.text }}</p>
+                                </blockquote>
+                                <div class="testimonial-author">
+                                    <span><strong>- {{ testimonial.title_name }}</strong></span>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                        <!-- Slider pagination -->
+                        <div class="swiper-pagination default-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial Section End Here -->
+    <!-- Support Section Start Here -->
+    <div class="pt-90 pb-90 mt-90 contact_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="support-wrapper" data-aos="fade-up" data-aos-delay="300">
+                        <div class="section-title text-center">
+                            <h1 class="title">Есть вопросы или предложения?</h1>
+                            <p class="mt-5 mb-5 pb-3 text_title">Если вы хотите работать с нами или хотите узнать больше о том, что мы делаем, мы будем рады пообщаться с вами</p>
+                        </div>
+                        <div class="support-button">
+                            <a class="btn  btn-hover-success" href="{% url 'contact' %}">связаться сейчас</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+    <!-- Support Section End Here -->

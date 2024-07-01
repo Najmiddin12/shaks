@@ -1,0 +1,268 @@
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+    <!-- Footer Section Start Here -->
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == "ru" %}
+    <footer class="footer-section pt-90">
+        <div class="footer-widget-area">
+            <div class="container container-default custom-area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-custom">
+                        <div class="single-footer-widget m-0" data-aos="fade-up" data-aos-delay="300" data-aos-anchor-placement="bottom bottom">
+                            <div class="footer-logo pb-3">
+                                <a href="index.html">
+                                    <img src="{% static 'project/assets/images/logo/white-logo.png' %}" alt="Logo Image">
+                                </a>
+                            </div>
+                            <!-- <p class="desc-content pt-3 pb-3">Lorem ipsum dolor sit amet, consect ascing elit, sed do eiusmod incididunt ut labore et dolore Many desktop lishing packages and web page editors</p> -->
+                            <!-- Soclial Link Start -->
+                            <div class="widget-social pt-4">
+                                {% for link in links %}
+                                <a href="{{ link.url }}"><i class="fa fa-{{ link.name }}"></i></a>
+                                {% endfor %}
+                                <!-- <a title="Youtube" href="#"><i class="fa fa-youtube"></i></a>
+                                <a title="Vimeo" href="#"><i class="fa fa-vimeo"></i></a> -->
+                            </div>
+                            <!-- Social Link End -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-custom">
+                        <div class="single-footer-widget" data-aos="fade-up" data-aos-delay="400" data-aos-anchor-placement="bottom bottom">
+                            <h2 class="widget-title">Наши сервисы</h2>
+                            <ul class="widget-list pt-3">
+                                <li class="text-white">Создание идеи, креатива, дизайна</li>
+                                <li class="text-white">Создание логотипа, нейминг, копирайтинг</li>
+                                <li class="text-white">Разработка рекламной концепции</li>
+                                <li class="text-white">Производство рекламного видео</li>
+                                <li class="text-white">Эффективный, полномасштабный PR</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2 col-custom">
+                        <div class="single-footer-widget" data-aos="fade-up" data-aos-delay="500" data-aos-anchor-placement="bottom bottom">
+                            <h2 class="widget-title">Быстрая ссылка</h2>
+                            <ul class="widget-list pt-3">
+                                <li><a href="{% url 'home' %}">Главная</a></li>
+                                <li><a href="{% url 'about' %}">О нас</a></li>
+                                <li><a href="{% url 'contact' %}">Справочный центр</a></li>
+                                <li><a href="{% url 'contact' %}">Состояние</a></li>
+                                <li><a href="{% url 'contact' %}">Срок использования</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-5 col-lg-3 col-custom">
+                        <div class="single-footer-widget" data-aos="fade-up" data-aos-delay="600" data-aos-anchor-placement="bottom bottom">
+                            <h2 class="widget-title">связаться</h2>
+                            <div class="widget-body pt-3">
+                                <a class="text-white" href="tel:+998555105055">(+99855) 510-50-55</a>
+                                <a class="text-white" href="tel:+998555105550">(+99855) 510-55-50</a>
+                            <br>
+                            <br>
+                                <p class="text-white">
+                                    Узбекистан, Ташкент <br>
+                                    улица Фидокор, 32А
+                                </p>
+                                {% for kontakt in contact %}
+                                <a class="text-white" href="">{{ kontakt.email_1 }}</a>
+                                <a class="text-white" href="">{{ kontakt.email_2 }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area pt-5 border-top mt-90 mb-5">
+            <div class="container custom-area">
+                <div class="row">
+                    <div class="col-12 text-center col-custom">
+                        <div class="copyright-content">
+                            {% for creator in creators %}
+                            <p class="mb-0 text-white" >Авторское право © 2023 <a href="https://hasthemes.com/"></a>создатели:&nbsp;<strong><a href="{{ creator.mirzoahmad_url }}">Мирзоахмад</a> и <a href="{{ creator.najmiddin_url }}">Наджмиддин</a></strong>&nbsp;</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% else %}
+    <footer class="footer-section pt-90">
+        <div class="footer-widget-area">
+            <div class="container container-default custom-area">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-custom">
+                        <div class="single-footer-widget m-0" data-aos="fade-up" data-aos-delay="300" data-aos-anchor-placement="bottom bottom">
+                            <div class="footer-logo pb-3">
+                                <a href="index%20ru.html">
+                                    <img src="{% static 'project/assets/images/logo/white-logo.png' %}" alt="Logo Image">
+                                </a>
+                            </div>
+                            <!-- <p class="desc-content pt-3 pb-3">Lorem ipsum dolor sit amet, consect ascing elit, sed do eiusmod incididunt ut labore et dolore Many desktop lishing packages and web page editors</p> -->
+                            <!-- Soclial Link Start -->
+                            <div class="widget-social pt-4">
+                                {% for link in links %}
+                                <a href="{{ link.url }}"><i class="fa fa-{{ link.name }}"></i></a>
+                                {% endfor %}
+                                <!-- <a title="Youtube" href="#"><i class="fa fa-youtube"></i></a>
+                                <a title="Vimeo" href="#"><i class="fa fa-vimeo"></i></a> -->
+                            </div>
+                            <!-- Social Link End -->
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-custom">
+                        <div class="single-footer-widget" data-aos="fade-up" data-aos-delay="400" data-aos-anchor-placement="bottom bottom">
+                            <h2 class="widget-title">Our Services</h2>
+                            <ul class="widget-list pt-3">
+                                <li class="text-white">Creating an idea, creativity, design</li>
+                                <li class="text-white">Logo creation, naming, copywriting</li>
+                                <li class="text-white">Development of the advertising concept</li>
+                                <li class="text-white">Advertising video production</li>
+                                <li class="text-white">Efficient, full-scale PR</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2 col-custom">
+                        <div class="single-footer-widget" data-aos="fade-up" data-aos-delay="500" data-aos-anchor-placement="bottom bottom">
+                            <h2 class="widget-title">Quick Link</h2>
+                            <ul class="widget-list pt-3">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'about' %}">About Us</a></li>
+                                <li><a href="{% url 'contact' %}">Help Center</a></li>
+                                <li><a href="{% url 'contact' %}">Status</a></li>
+                                <li><a href="{% url 'contact' %}">Term of use</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-5 col-lg-3 col-custom">
+                        <div class="single-footer-widget" data-aos="fade-up" data-aos-delay="600" data-aos-anchor-placement="bottom bottom">
+                            <h2 class="widget-title">Contacts</h2>
+                            <div class="widget-body pt-3">
+                                <a class="text-white" href="tel:+998555105055">(+99855) 510-50-55</a>
+                                <a class="text-white" href="tel:+998555105550">(+99855) 510-55-50</a>
+                            <br>
+                            <br>
+                                <p class="text-white">
+                                    Uzbekistan, Tashkent <br>
+                                    street Fidokor, 32А
+                                </p>
+                                {% for kontakt in contact %}
+                                <a class="text-white" href="mailto:{{ kontakt.email_1 }}">{{ kontakt.email_1 }}</a>
+                                <a class="text-white" href="mailto:{{ kontakt.email_2 }}">{{ kontakt.email_2 }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-area pt-5 border-top mt-90 mb-5">
+            <div class="container custom-area">
+                <div class="row">
+                    <div class="col-12 text-center col-custom">
+                        <div class="copyright-content">
+                            {% for creator in creators %}
+                            <p class="mb-0 text-white" >Copyright © 2023 <a href="https://hasthemes.com/"></a>developers:&nbsp;<strong><a href="{{ creator.mirzoahmad_url }}">Mirzoahmad</a> и <a href="{{ creator.najmiddin_url }}">Najmiddin</a></strong>&nbsp;</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endif %}
+    <!-- Footer Section End Here -->
+
+
+
+    <!-- Scroll Top Start Here -->
+    <a href="#" class="scroll-top" id="scroll-top">
+        <i class="arrow-top fa fa-angle-double-up"></i>
+        <i class="arrow-bottom fa fa-angle-double-up"></i>
+    </a>
+    <!-- Scroll Top End Here -->
+
+    <!-- Global Vendor, plugins JS -->
+    <!-- Vendors JS -->
+    <!--
+        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+    -->
+
+    <!-- Plugins JS -->
+    <!--
+        <script src="assets/js/plugins/splitting.min.js"></script>
+        <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+        <script src="assets/js/plugins/waypoints.min.js"></script>
+        <script src="assets/js/plugins/counter.min.js"></script>
+    <script src="assets/js/plugins/aos.min.js"></script>
+    <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/plugins/jquery.vide.min.js"></script>
+    <script src="assets/js/plugins/masonry.min.js"></script>
+    <script src="assets/js/plugins/theia-sticky-sidebar.min.js"></script>
+    <script src="assets/js/plugins/nice-select.min.js"></script>
+    <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/plugins/jquery-ui.min.js"></script>
+-->
+
+<!-- Use the minified version files listed below for better performance and remove the files listed above -->
+<script src="https://kit.fontawesome.com/356c7413c0.js" crossorigin="anonymous"></script>
+<script src="{% static 'project/assets/js/vendor/vendor.min.js' %}"></script>
+<script src="{% static 'project/assets/js/plugins/plugins.min.js' %}"></script>
+<script src="{% static 'project/assets/js/main.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let currentlyPlayingVideo = null;
+
+        $('.video-thumb').on('click', function () {
+            const videoSrc = $(this).data('video');
+            $('#modalVideo').attr('src', videoSrc);
+            $('#videoModal').modal('show');
+
+            // Pause the currently playing video in the modal, if any
+            if (currentlyPlayingVideo) {
+                currentlyPlayingVideo.pause();
+            }
+            currentlyPlayingVideo = document.getElementById('modalVideo');
+            currentlyPlayingVideo.play();
+        });
+
+        $('#videoModal').on('hidden.bs.modal', function () {
+            $('#modalVideo').attr('src', ''); // Stop the video when the modal is closed
+            if (currentlyPlayingVideo) {
+                currentlyPlayingVideo.pause();
+            }
+            currentlyPlayingVideo = null; // Reset the currently playing video
+
+            // Hide the off-canvas overlay
+            $('.off-canvas-overlay').hide();
+        });
+
+        // Ensure only one video is playing at a time
+        $('video').on('play', function () {
+            if (currentlyPlayingVideo && currentlyPlayingVideo !== this) {
+                currentlyPlayingVideo.pause();
+            }
+            currentlyPlayingVideo = this;
+        });
+
+        // Show the off-canvas overlay when the modal is shown
+        $('#videoModal').on('show.bs.modal', function () {
+            $('.off-canvas-overlay').show();
+        });
+
+        // Handle the close button for the video modal
+        $('.close').on('click', function () {
+            $('#videoModal').modal('hide');
+        });
+    });
+</script>
+
+{% endblock content %}

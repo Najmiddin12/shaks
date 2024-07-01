@@ -1,0 +1,482 @@
+{% load i18n %}
+{% load static %}
+
+{% block content %}
+
+<div id="preloader">
+    <div class="preloader">
+        <div class="spinner-border text-primary"></div>
+    </div>
+</div>
+
+<!-- Header Area Start Here -->
+
+<header class="main-header-area header-transparent header-sticky">
+    <!-- Main Header Area Start -->
+    <div class="container main-header-nav">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            {% for kontakt in contact %}
+            <li><a href="#" class="nav-link px-2 link-secondary"><i class="fa-solid fa-envelope"></i>&nbsp;{{ kontakt.email_1 }}</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark"><i class="fa-solid fa-phone"></i>&nbsp;{{ kontakt.phone_1 }}</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark"><i class="fa-solid fa-envelope"></i>&nbsp;{{ kontakt.email_2 }}</a></li>
+            <li><a href="#" class="nav-link px-2 link-dark"><i class="fa-solid fa-phone"></i>&nbsp;{{ kontakt.phone_2 }}</a></li>
+            {% endfor %}
+          </ul>
+
+
+
+          {% get_current_language as LANGUAGE_CODE %}
+          {% if LANGUAGE_CODE == "ru" %}
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Русский
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a class="dropdown-item text-dark" href="{% url 'set_language' %}" onclick="event.preventDefault(); document.getElementById('set-lang-ru').submit();">
+                  Русский
+                </a>
+                <form id="set-lang-ru" action="{% url 'set_language' %}" method="post" style="display: none;">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="ru">
+                <input type="hidden" name="next" value="{{ request.path }}">
+                </form>
+              </li>
+              <li>
+                <a class="dropdown-item text-dark" href="{% url 'set_language' %}" onclick="event.preventDefault(); document.getElementById('set-lang-en').submit();">
+                  Английский
+                </a>
+                <form id="set-lang-en" action="{% url 'set_language' %}" method="post" style="display: none;">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="en">
+                <input type="hidden" name="next" value="{{ request.path }}">
+                </form>
+              </li>
+            </ul>
+          </div>
+          {% else %}
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              English
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a class="dropdown-item text-dark" href="{% url 'set_language' %}" onclick="event.preventDefault(); document.getElementById('set-lang-ru').submit();">
+                  Russian
+                </a>
+                <form id="set-lang-ru" action="{% url 'set_language' %}" method="post" style="display: none;">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="ru">
+                <input type="hidden" name="next" value="{{ request.path }}">
+                </form>
+              </li>
+              <li>
+                <a class="dropdown-item text-dark" href="{% url 'set_language' %}" onclick="event.preventDefault(); document.getElementById('set-lang-en').submit();">
+                  English
+                </a>
+                <form id="set-lang-en" action="{% url 'set_language' %}" method="post" style="display: none;">
+                {% csrf_token %}
+                <input type="hidden" name="language" value="en">
+                <input type="hidden" name="next" value="{{ request.path }}">
+                </form>
+              </li>
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+    </div>
+
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-xl-2 col-md-6 col-6">
+                    <div class="header-logo d-flex align-items-center">
+
+
+                        <a href="{% url 'home' %}">
+                            <img class="nonsticky-logo img-full" src="{% static 'project/assets/images/logo/logo.png' %}" alt="Header Logo">
+                            <img class="sticky-logo img-full" src="{% static 'project/assets/images/logo/white-logo.png' %}" alt="Header Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-6 col-6 d-flex justify-content-end">
+                    <nav class="main-nav d-none d-lg-flex">
+                        <ul class="nav">
+                            <li>
+                                <a class="active" href="{% url 'home' %}">
+                                    <span class="menu-text"> Главная</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'about' %}">
+                                    <span class="menu-text">О нас</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="service.html">
+                                    <span class="menu-text">Сервисы</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="{% url 'portfolio' %}">
+                                    <span class="menu-text">Портфолио</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="blog.html">
+                                    <span class="menu-text"> Blog</span>
+                                </a>
+
+                            </li> -->
+                            <li>
+                                <a href="{% url 'contact' %}">
+                                    <span class="menu-text">Контакты</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <div class="header-right-area main-nav">
+                        <ul class="nav">
+                            <li class="account-menu-wrap d-none d-lg-flex">
+                                <a href="#" class="off-canvas-menu-btn">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                            <li class="search-box-menu d-block d-lg-none">
+                                <a href="#" class="off-canvas-search-btn">
+                                    <span class="btn-search"><i class="fa fa-search"></i></span>
+                                </a>
+                            </li>
+                            <li class="mobile-menu-btn d-block d-lg-none">
+                                <a class="off-canvas-btn" href="#">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="main-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-2 col-xl-2 col-md-6 col-6">
+                    <div class="header-logo d-flex align-items-center">
+
+
+                        <a href="{% url 'home' %}">
+                            <img class="nonsticky-logo img-full" src="{% static 'project/assets/images/logo/logo.png' %}" alt="Header Logo">
+                            <img class="sticky-logo img-full" src="{% static 'project/assets/images/logo/white-logo.png' %}" alt="Header Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-6 col-6 d-flex justify-content-end">
+                    <nav class="main-nav d-none d-lg-flex">
+                        <ul class="nav">
+                            <li>
+                                <a class="active" href="{% url 'home' %}">
+                                    <span class="menu-text">Home</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'about' %}">
+                                    <span class="menu-text">About Us</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="service.html">
+                                    <span class="menu-text">Сервисы</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="{% url 'portfolio' %}">
+                                    <span class="menu-text">Portfolio</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="blog.html">
+                                    <span class="menu-text"> Blog</span>
+                                </a>
+
+                            </li> -->
+                            <li>
+                                <a href="{% url 'contact' %}">
+                                    <span class="menu-text">Contact</span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                    <div class="header-right-area main-nav">
+                        <ul class="nav">
+                            <li class="account-menu-wrap d-none d-lg-flex">
+                                <a href="#" class="off-canvas-menu-btn">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                            <li class="search-box-menu d-block d-lg-none">
+                                <a href="#" class="off-canvas-search-btn">
+                                    <span class="btn-search"><i class="fa fa-search"></i></span>
+                                </a>
+                            </li>
+                            <li class="mobile-menu-btn d-block d-lg-none">
+                                <a class="off-canvas-btn" href="#">
+                                    <i class="fa fa-bars"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Main Header Area End -->
+    <!-- off-canvas mobile menu start -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <aside class="off-canvas-wrapper" id="mobileMenu">
+        <div class="off-canvas-overlay"></div>
+        <div class="off-canvas-inner-content">
+            <div class="btn-close-off-canvas">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="off-canvas-inner">
+                <div class="offcanvas-widget-area">
+                    <!-- Start Serach Box -->
+                    <div class="search-box-wrap off-canvas-item">
+                        <form action="#" method="post">
+                            <input placeholder="Search..">
+                            <button class="btn-search"><i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <!-- End Search Box -->
+                    <!-- mobile menu start -->
+                    <div class="mobile-navigation">
+                        <!-- mobile menu navigation start -->
+                        <nav>
+                            <ul class="mobile-menu">
+                                <li class="menu-item-has-children"><a href="{% url 'home' %}">Главная</a>
+                                </li>
+                                <li><a href="{% url 'about' %}">О нас</a></li>
+                                <!-- <li><a href="service.html">Сервисы</a></li> -->
+                                <li class="menu-item-has-children"><a href="{% url 'portfolio' %}">Портфолио</a>
+                                </li>
+                                <!-- <li class="menu-item-has-children"><a href="#">Blog</a>
+                                </li> -->
+                                <li><a href="{% url 'contact' %}">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <!-- mobile menu navigation end -->
+                    </div>
+                    <!-- mobile menu end -->
+                    <!-- Soclial Link Start -->
+                    <div class="widget-social">
+                        {% for link in links %}
+                        <a href="{{ link.url }}"><i class="fa fa-{{ link.name }}"></i></a>
+                        {% endfor %}
+                    </div>
+                    <!-- Social Link End -->
+                </div>
+            </div>
+        </div>
+    </aside>
+    {% else %}
+    <aside class="off-canvas-wrapper" id="mobileMenu">
+        <div class="off-canvas-overlay"></div>
+        <div class="off-canvas-inner-content">
+            <div class="btn-close-off-canvas">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="off-canvas-inner">
+                <div class="offcanvas-widget-area">
+                    <!-- Start Serach Box -->
+                    <div class="search-box-wrap off-canvas-item">
+                        <form action="#" method="post">
+                            <input placeholder="Search..">
+                            <button class="btn-search"><i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <!-- End Search Box -->
+                    <!-- mobile menu start -->
+                    <div class="mobile-navigation">
+                        <!-- mobile menu navigation start -->
+                        <nav>
+                            <ul class="mobile-menu">
+                                <li class="menu-item-has-children"><a href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li><a href="{% url 'about' %}">About Us</a></li>
+                                <!-- <li><a href="service.html">Сервисы</a></li> -->
+                                <li class="menu-item-has-children"><a href="{% url 'portfolio' %}">Portfolio</a>
+                                </li>
+                                <!-- <li class="menu-item-has-children"><a href="#">Blog</a>
+                                </li> -->
+                                <li><a href="{% url 'contact' %}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <!-- mobile menu navigation end -->
+                    </div>
+                    <!-- mobile menu end -->
+                    <!-- Soclial Link Start -->
+                    <div class="widget-social">
+                        {% for link in links %}
+                        <a href="{{ link.url }}"><i class="fa fa-{{ link.name }}"></i></a>
+                        {% endfor %}
+                    </div>
+                    <!-- Social Link End -->
+                </div>
+            </div>
+        </div>
+    </aside>
+    {% endif %}
+    <!-- off-canvas menu end -->
+    <!-- Offcanvas Serach Start -->
+    <aside class="off-canvas-search-wrapper">
+        <div class="off-canvas-overlay"></div>
+        <div class="off-canvas-inner-content">
+            <!-- <div class="off-canvas-inner">
+                <form action="#" method="post">
+                    <input type="search" placeholder="Search..">
+                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                </form>
+            </div> -->
+        </div>
+    </aside>
+    <!-- Offcanvas Search End -->
+    <!-- off-canvas menu start -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <aside class="off-canvas-menu-wrapper" id="sideMenu">
+        <div class="off-canvas-overlay"></div>
+        <div class="off-canvas-inner-content">
+            <div class="off-canvas-inner">
+                <!-- offcanvas widget area start -->
+                <div class="offcanvas-widget-area">
+                    <!-- Start Serach Box -->
+                    <!-- <div class="search-box-wrap off-canvas-item">
+                        <form action="#" method="post">
+                            <input placeholder="Search..">
+                            <button class="btn-search"><i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div> -->
+                    <!-- End Search Box -->
+                    <ul class="menu-top-menu">
+                        <li><span>Shak`s media</span></li>
+                    </ul>
+                    <!-- <p class="desc-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <ul class="useful-link"> -->
+                        <li><a href="{% url 'home' %}">Главная</a></li>
+                        <!-- <li><a href="service.html">Service</a></li> -->
+                        <li><a href="{% url 'portfolio' %}">Портфолио</a></li>
+                        <li><a href="{% url 'about' %}">О нас</a></li>
+                        <li><a href="{% url 'contact' %}">Контакты</a></li>
+                        {% for kontakt in contact %}
+                        <li><a href="#" class="nav-link px-2 link-secondary"><i class="fa-solid fa-envelope"></i>&nbsp; {{ kontakt.email_1 }} <br><i class="fa-solid fa-phone"></i> {{ kontakt.phone_1 }}</a></li>
+
+                        <li><a href="#" class="nav-link px-2 link-secondary"><i class="fa-solid fa-envelope"></i>&nbsp; {{ kontakt.email_2 }} <br><i class="fa-solid fa-phone"></i> {{ kontakt.phone_2 }}</a></li>
+                        {% endfor %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Языки
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item text-dark" href="{% url 'home' %}">Русский</a></li>
+                                <li><a class="dropdown-item text-dark" href="{% url 'home' %}">Английский</a></li>
+                                <li><a class="dropdown-item text-dark" href="{% url 'home' %}">Узбекский</a></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                    <div class="widget-social">
+                        <ul class="menu-top-menu">
+                            <li><span>Связаться с нами</span></li>
+                        </ul>
+                        {% for link in links %}
+                        <a href="{{ link.url }}"><i class="fa fa-{{ link.name }}"></i></a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- offcanvas widget area end -->
+            </div>
+
+            <div class="btn-close-off-canvas">
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+    </aside>
+    {% else %}
+    <aside class="off-canvas-menu-wrapper" id="sideMenu">
+        <div class="off-canvas-overlay"></div>
+        <div class="off-canvas-inner-content">
+            <div class="off-canvas-inner">
+                <!-- offcanvas widget area start -->
+                <div class="offcanvas-widget-area">
+                    <!-- Start Serach Box -->
+                    <!-- <div class="search-box-wrap off-canvas-item">
+                        <form action="#" method="post">
+                            <input placeholder="Search..">
+                            <button class="btn-search"><i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div> -->
+                    <!-- End Search Box -->
+                    <ul class="menu-top-menu">
+                        <li><span>Shak`s media</span></li>
+                    </ul>
+                    <!-- <p class="desc-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <ul class="useful-link"> -->
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <!-- <li><a href="service.html">Service</a></li> -->
+                        <li><a href="{% url 'portfolio' %}">Portfolio</a></li>
+                        <li><a href="{% url 'about' %}">About Us</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        {% for kontakt in contact %}
+                        <li><a href="#" class="nav-link px-2 link-secondary"><i class="fa-solid fa-envelope"></i>&nbsp; {{ kontakt.email_1 }} <br><i class="fa-solid fa-phone"></i> {{ kontakt.phone_1 }}</a></li>
+
+                        <li><a href="#" class="nav-link px-2 link-secondary"><i class="fa-solid fa-envelope"></i>&nbsp; {{ kontakt.email_2 }} <br><i class="fa-solid fa-phone"></i> {{ kontakt.phone_2 }}</a></li>
+                        {% endfor %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Языки
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item text-dark" href="{% url 'home' %}">Русский</a></li>
+                                <li><a class="dropdown-item text-dark" href="{% url 'home' %}">Английский</a></li>
+                                <li><a class="dropdown-item text-dark" href="{% url 'home' %}">Узбекский</a></li>
+                            </ul>
+                        </div>
+
+                    </ul>
+                    <div class="widget-social">
+                        <ul class="menu-top-menu">
+                            <li><span>Связаться с нами</span></li>
+                        </ul>
+                        {% for link in links %}
+                        <a href="{{ link.url }}"><i class="fa fa-{{ link.name }}"></i></a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- offcanvas widget area end -->
+            </div>
+
+            <div class="btn-close-off-canvas">
+                <i class="fa fa-times"></i>
+            </div>
+        </div>
+    </aside>
+    {% endif %}
+    <!-- off-canvas menu end -->
+</header>
+
+{% endblock content %}
+

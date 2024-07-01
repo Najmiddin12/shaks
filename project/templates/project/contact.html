@@ -1,0 +1,207 @@
+{% extends 'layout/base.html' %} 
+{% load static %}
+
+
+{% block content %}
+    <!-- Breadcrumb Area Start Here -->
+    <div class="breadcrumbs-area position-relative mb-text-p">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == "ru" %}
+                    <div class="breadcrumb-content position-relative section-content">
+                        <h3 class="title text-center text-white">Контакты</h3>
+                    </div>
+                    {% else %}
+                    <div class="breadcrumb-content position-relative section-content">
+                        <h3 class="title text-center text-white">Contact</h3>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Area End Here -->
+    <!-- Contact Information And Title Area Start -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="contact-info mt-5 pt-90 pb-90">
+        <div class="container">
+            <div class="row mb-n10">
+                <div class="col-md-4 mb-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info">
+                        <div class="info-icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="title text-white">Наши местоположения</h4>
+                            <span class="info-text text-white"> Узбекистан, Ташкент <br> улица Фидокор, 32А</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info">
+                        <div class="info-icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="title text-white">Позвоните нам</h4>
+                            <span class="info-text text-white"><a href="tel:+998555105055">(+99855) 510-50-55</a></span>
+                            <br>
+                            <span class="info-text text-white"><a href="tel:+998555105550">(+99855) 510-55-50</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-10" data-aos="fade-up" data-aos-delay="600">
+                    <div class="info">
+                        <div class="info-icon">
+                            <i class="fa fa-envelope-o"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="title text-white">Справочная служба</h4>
+                            <span class="info-text">
+                            {% for kontakt in contact %}
+                                <a class="text-white" href="">{{ kontakt.email_1 }}</a>
+                                <br>
+                                <a class="text-white" href="">{{ kontakt.email_2 }}</a>
+                            {% endfor %}
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="contact-info mt-5 pt-90 pb-90">
+        <div class="container">
+            <div class="row mb-n10">
+                <div class="col-md-4 mb-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info">
+                        <div class="info-icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="title text-white">Our location</h4>
+                            <span class="info-text text-white"> Uzbekistan, Tashkent <br> street Fidokor, 32А</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-10" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info">
+                        <div class="info-icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="title text-white">Contacts</h4>
+                            <span class="info-text text-white"><a href="tel:+998555105055">(+99855) 510-50-55</a></span>
+                            <br>
+                            <span class="text-white"><a href="tel:+998555105550">(+99855) 510-55-50</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-10" data-aos="fade-up" data-aos-delay="600">
+                    <div class="info">
+                        <div class="info-icon">
+                            <i class="fa fa-envelope-o"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4 class="title text-white">Help Service</h4>
+                            <span class="info-text">
+                            {% for kontakt in contact %}
+                                <a class="text-white" href="">{{ kontakt.email_1 }}</a>
+                                <br>
+                                <a class="text-white" href="">{{ kontakt.email_2 }}</a>
+                            {% endfor %}
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Contact Information End -->
+    <!-- Contact Map Start -->
+    <div class="contac-map pb-90">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!--Google Map Area Start-->
+                    <div class="google-map-area">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d470.33223895259147!2d69.27352011466525!3d41.29502199810456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2s!4v1676367907560!5m2!1sru!2s" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <!--Google Map Area Start-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact Map End -->
+    <!-- Contact Form Start -->
+    {% if LANGUAGE_CODE == "ru" %}
+    <div class="contact-form-area bg-light pt-90 pb-90" data-aos="fade-up" data-aos-delay="100">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-2 col-lg-8">
+                    <div class="contact-form">
+                        <form action="{% url 'contact' %}" id="contact-form" method="post">{% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 col-12 mb-6">
+                                    <input class="input-item" type="text" placeholder="Имя" name="name">
+                                </div>
+                                <div class="col-md-6 col-12 mb-6">
+                                    <input class="input-item" type="email" placeholder="Email" name="email">
+                                </div>
+                                <div class="col-12 mb-6">
+                                    <input class="input-item" type="text" placeholder="Телефон" name="phone">
+                                </div>
+                                <div class="col-12 mb-6">
+                                    <textarea class="textarea-item" name="text" placeholder="Сообщения"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-hover-dark">Отправить</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="contact-form-area bg-light pt-90 pb-90" data-aos="fade-up" data-aos-delay="100">
+        <div class="container">
+            <div class="row">
+                <div class="offset-lg-2 col-lg-8">
+                    <div class="contact-form">
+                        <form action="{% url 'contact' %}" id="contact-form" method="post">{% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 col-12 mb-6">
+                                    <input class="input-item" type="text" placeholder="Name" name="name">
+                                </div>
+                                <div class="col-md-6 col-12 mb-6">
+                                    <input class="input-item" type="email" placeholder="Email" name="email">
+                                </div>
+                                <div class="col-12 mb-6">
+                                    <input class="input-item" type="text" placeholder="Phone Number" name="phone">
+                                </div>
+                                <div class="col-12 mb-6">
+                                    <textarea class="textarea-item" name="text" placeholder="Text"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-hover-dark">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- Contact Form End -->
+{% endblock content %}

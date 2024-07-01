@@ -1,0 +1,43 @@
+{% extends 'layout/base.html' %}
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+    <!-- Breadcrumb Area Start Here -->
+    
+    <div class="container mt-10">
+        <div class="row">
+          {% for photo in photos %}
+          <div class="col-md-12">
+            <img src="{{ photo.photo.url }}" alt="">
+          </div>
+          {% endfor %}
+          <div class="col-md-12">
+            <h1 class="text-white">{{ service.title }}</h1>
+            <p class="text-white">{{ service.description|linebreaksbr }}
+                </p>
+          </div>
+        </div>
+      </div>   
+
+    <!-- Support Section Start Here -->
+    <div class="pt-90 pb-90 mt-90 contact_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="support-wrapper" data-aos="fade-up" data-aos-delay="300">
+                        <div class="section-title text-center">
+                            <h1 class="title">Есть вопросы или предложения?</h1>
+                            <p class="mt-5 mb-5 pb-3 text_title">Если вы хотите работать с нами или хотите узнать больше о том, что мы делаем, мы будем рады пообщаться с вами</p>
+                        </div>
+                        <div class="support-button">
+                            <a class="btn  btn-success" href="{% url 'contact' %}">связаться сейчас</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Support Section End Here -->
+{% endblock content %}

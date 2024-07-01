@@ -1,0 +1,479 @@
+/* portfolio section single */
+
+
+
+
+/* end portfolio sectioan single */
+
+
+/* about section single */
+
+
+
+
+.breadcrumbs-area{
+  background-image:url(../images/slider/1-3.jpg);
+}
+
+.title.mb-5.about-title-single{
+  font-size: 60px;
+}
+
+
+.desc-content.mb-7.about-text-single{
+  font-size: 24px;
+  color: rgb(26, 26, 26);
+}
+
+
+/* end about section */
+
+
+li{
+  padding: 0;
+  margin: 0;
+}
+
+
+.header-sticky{
+  position:sticky;
+  background:#343A40;
+}
+
+
+
+/* about section */
+
+.desc-content.about-text{
+  color: rgb(49, 49, 49);
+  font-size: 14px;
+}
+
+/* end about section */
+
+
+/* main navigate */
+.main-header-nav{
+  color: white;
+  padding-top: 20px;
+}
+
+.main-header-nav a{
+  color: white;
+  font-weight: 600;
+}
+
+.btn-secondary{
+  margin-top: 10px;
+  background: none;
+  border-style: none;
+}
+
+.btn-secondary:hover {
+  background: none;
+}
+
+
+.main-header-nav{
+  color: rgb(255, 255, 255);
+}
+
+
+
+.dropdown-menu.show{
+  background: rgb(255, 255, 255);
+}
+
+
+
+/* contact section */
+.contact_section{
+  /* filter: brightness(40%); */
+  background-image: url(../images/call-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact_section .title{
+  color: white;
+  font-weight: 800;
+}
+
+.contact_section .text_title{
+  color: white;
+}
+
+.contact_section .support-button a{
+  background-color: rgb(0, 60, 128);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+/* end contact */
+
+
+/* testimonial */
+.swiper-pagination.default-pagination{
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background-image: none;
+}
+
+
+.section-title .sub-title span b, strong{
+  color: whitesmoke;
+}
+
+
+.section-title .title{
+  color: rgb(255, 166, 0);
+  font-weight: 800;
+  /* padding-bottom: 30px; */
+}
+
+.section-title .sub-title{
+  color: whitesmoke;
+}
+
+.testimonial-section .testimonial blockquote p{
+  color: whitesmoke;
+}
+
+
+.testimonial-section{
+  background-image: url(../images/slider/1-3.jpg);
+  color: whitesmoke;
+}
+
+.testimonial-section .testimonial .testimonial-author-image img{
+  width: 100px;
+}
+/* end testimonial */
+
+
+/* footer */
+.footer-section{
+  background: rgb(238, 238, 238);
+}
+/* end footer */
+
+
+/* portfolio-image-carousel*/
+
+.carousel-item{
+  width: 100%;
+  margin: 100px;
+}
+
+/* end portfolio */
+
+
+
+
+/* testimonial start */
+.section-title .sub-title{
+  color: white;
+}
+
+.testimonial-section .testimonial .testimonial-author-image img {
+  width: 100px;
+  height: 50px;
+}
+
+
+li{
+  list-style: none;
+}
+
+
+/* .testimonial-author-image img.ferre{
+  width: 10px;
+  height: 100px;
+} */
+
+
+/* portfolio */
+
+.section-title .sub-title-portfolio{
+  color: rgb(51, 51, 51);
+  font-weight: 900;
+}
+
+/* portfolio end */
+
+
+/* testimonial end */
+
+
+/* portfolio images */
+
+/* #myImg{
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myimg:hover{opacity: 0.7;}
+
+
+.modal{
+  overflow-y: hidden;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; */
+  /* overflow: auto; */
+  /* background-color: rgb(0,0,0);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  
+}
+
+#caption{
+  margin: 0;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content, #caption {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+  margin-top: 100px;
+}
+
+@-webkit-keyframes zoom{
+  from{-webkit-transform: scale(0)}
+  to{-webkit-trasnform:scale(1)}
+}
+
+@keyframes zoom{
+  from{transform: scale(0)}
+  to{transform:scale(1)}
+}
+
+.close{
+  position: absolute;
+  top: 115px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover, .close:focus{
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content{width: 100%;}
+} */
+
+/* portfolio */
+.slide-1{
+  background-image: url(../images/slider/1-2.jpg);
+}
+
+.slide-2{
+  background-image: url(../images/slider/1-3.jpg);
+}
+
+
+/* team section */
+
+.container .team .mt-5{
+  background: gray;
+  width: 100%;
+}
+
+.team.mt-5{ 
+  /* background-color: rgb(241, 241, 241); */
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: rgb(237, 237, 237);
+}
+
+.row.team_cards{
+  padding-top: 50px;
+}
+
+.card.team{
+  border-radius: 10px;
+  box-shadow:0px 2px 15px rgb(0 0 0 / 10%);
+}
+
+.team_cards_single{
+  padding: 30px;
+}
+
+.team_title h1{
+  color: rgb(255, 166, 0);
+  width: 100%;
+  font-weight: 900;
+}
+
+hr{
+  background-color: rgb(0, 0, 0);
+  height: 5px;
+  width: 30%;
+}
+
+.social_media img{
+  width: 50px;
+  padding:10px;
+}
+
+.card-body h5{
+  font-size: 20px;
+}
+
+/* end team section */
+
+
+/* blog section */
+
+.blog.section{
+  background: gray;
+}
+
+/* end blog section */
+
+
+
+
+/* contact section */
+
+
+
+/* end contact section */
+
+
+
+/* footer */
+
+.footer-section{
+  background: #343A40;
+}
+
+.single-footer-widget .widget-title{
+  color: whitesmoke;
+}
+
+.single-footer-widget .widget-list li a{
+  color: whitesmoke;
+}
+
+
+.desc-content{
+  color: whitesmoke;
+}
+
+.single-footer-widget .widget-title:after{
+  background: whitesmoke;
+}
+
+/* end footer */
+
+
+
+
+/* adabtive tables 960 --> 1200 */
+@media (min-width: 992px) and (max-width: 1200px) { 
+
+
+  .main-header-nav a{
+    font-size: 13px;
+  }
+
+  .main-header-area .header-logo img{
+    width: 100%;
+  }
+
+  .swiper-slide-active{
+  }  
+
+
+
+ }
+
+
+
+ @media (min-width: 768px) and (max-width: 992px) { 
+
+
+
+  .main-header-nav{
+    display: none;
+  }
+
+  .main-header-area .header-logo img{
+    width: 50%;
+  }
+
+  .swiper-slide-active{
+  }  
+
+
+ }
+
+
+ @media (min-width: 576px) and (max-width: 768px) { 
+
+
+  .main-header-nav{
+    display: none;
+  }
+
+  .main-header-area .header-logo img{
+    width: 70%;
+  }
+
+  .swiper-slide-active{
+  }  
+
+
+ }
+
+
+/* adabtive smartphones 375 --> 960 */
+
+@media (min-width: 378px) and (max-width: 576px) { 
+
+
+  .main-header-nav{
+    display: none;
+  }
+
+  .main-header-area .header-logo img{
+    width: 70%;
+  }
+
+  .swiper-slide-active{
+  } 
+  
+  .selectpicker{
+    display: none;
+  }
+
+
+ }
